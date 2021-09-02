@@ -16,6 +16,8 @@ from types import SimpleNamespace
 import discord
 import isodate
 from aiohttp import ClientSession
+from discord.ext.commands import Bot
+from discord.ext import commands
 from discord.ext import commands, tasks
 from discord.ext.commands.view import StringView
 from emoji import UNICODE_EMOJI
@@ -1648,6 +1650,10 @@ def main():
     bot = ModmailBot()
     bot.run()
 
+@bot.event
+async def on_ready():
+    await bot.change_presence(status=discord.Status.idle, activity=activity)
+    print("Bot is ready!")
 
 if __name__ == "__main__":
     main()
