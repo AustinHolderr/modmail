@@ -1652,7 +1652,7 @@ def main():
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Status.idle, activity=activity)
+    await client.change_presence(status=discord.Status.idle)
     print("Bot is ready!")
 
 if __name__ == "__main__":
