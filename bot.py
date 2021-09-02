@@ -1650,9 +1650,9 @@ def main():
     bot = ModmailBot()
     bot.run()
 
-@bot.event
+@client.event
 async def on_ready():
-    await bot.change_presence(status=discord.Status.idle, activity=activity)
+    await client.change_presence(activity=discord.Status.idle, activity=activity)
     print("Bot is ready!")
 
 if __name__ == "__main__":
