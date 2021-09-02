@@ -34,6 +34,11 @@ try:
 except ImportError:
     pass
 
+@client.event
+async def on_ready():
+    await client.change_presence(status=discord.Status.idle)
+    print("Bot is ready!")
+
 from core import checks
 from core.changelog import Changelog
 from core.clients import ApiClient, MongoDBClient, PluginDatabaseClient
@@ -1649,11 +1654,6 @@ def main():
 
     bot = ModmailBot()
     bot.run()
-
-@client.event
-async def on_ready():
-    await client.change_presence(status=discord.Status.idle)
-    print("Bot is ready!")
 
 if __name__ == "__main__":
     main()
